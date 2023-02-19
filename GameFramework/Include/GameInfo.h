@@ -9,6 +9,7 @@
 #include <vector> 
 #include <stack>
 #include <string>
+#include <assert.h>
 #include <unordered_map>
 #include <functional>
 #include "resource.h"

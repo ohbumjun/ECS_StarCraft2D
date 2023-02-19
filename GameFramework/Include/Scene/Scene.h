@@ -11,6 +11,10 @@
 #include "../Object/ShotGun.h"
 #include "../Object/DuckMonster.h"
 
+// ECS
+#include "../ECSFlag.h"
+#include "../Entity.h"
+
 class CScene
 {
 	friend class CSceneManager;
@@ -36,6 +40,14 @@ public:
 	int		m_UICount;
 	int		m_UICapacity;
 	class CTileMap* m_TileMap;
+
+	// ECS
+	std::vector<Entity*> m_vecEntities;
+	// Entity Recycle
+	DestroyedEntity* m_RecycleEntity;
+	// Recycle 가능한 Entity 개수들
+	int m_RecycleAvailable;
+
 public:
 	CGameObject* FindObject(const std::string& Name);
 	CGameObject* FindObject(CGameObject* Obj);

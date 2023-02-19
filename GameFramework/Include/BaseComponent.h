@@ -11,10 +11,22 @@ public:
 	BaseComponent() = default;
 	virtual ~BaseComponent() = default;
 
-	Entity* entity = nullptr;
-
 	virtual bool init() { return true; }
 	virtual void draw() {};
-	virtual void update() {};
+	virtual void update();
+	virtual void updateLogic() {};
+
+	void SetVersion(int v)
+	{
+		m_Version = v;
+	}
+	int GetVersion()
+	{
+		return m_Version;
+	}
+
+private :
+	Entity* m_Entity = nullptr;
+	int m_Version = 0;
 };
 

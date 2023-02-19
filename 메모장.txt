@@ -1,0 +1,41 @@
+전반적인 프로젝트 방향
+- 변하지 않는 것들을 ArcheType 으로
+- 변하는 것은 SparseSet 형태로 
+- 또한 SparseSet 은 page 단위로 세팅하기 
+
+Entity 는 Recycle 하고 싶다.
+- 해당 Entity 가 사라졌는지 알고 싶고
+- 그 다음 recyle 할 entity 도 알고 싶다.
+대신 vector 형태로 들고 있기는 싫다. 
+
+즉, 없어졌는지 아닌지를 별도의 bool 변수를 안두고
+ID ? 내부에 세팅하고 싶은데
+그건 오케이 그전에 Version 은 왜 있는 거임 ?
+
+해결책 : list 내부로 둔다.
+Version 정보 -> Entity 에, 그리고 Component 에 둬서
+Component 가 참조하는 Entity 의 Version 과
+Component 의 Version 이 다르면 X
+
+---------------------------
+
+> nxt 형태로 list 로 연결하기
+> availabe 이라는 number 를 세팅하기
+> version 정보 ? 로 세팅하고 싶다...?
+
+ComponentType 적용하기
+
+Component 가 들고 있게 하기 (Cache 적중률 높이기)
+- SparesSet Container 에 접근할 수 있는 
+  즉, 자기가 사용하는 SparsseSet 에 접근할 수 있는 로직 세팅하기.
+- SparseSet 구조 잡기
+
+Entity 가 어떤 정보를 들고 있는지 확인 ~ Component 사이의 관련성 ? 세팅하기
+
+ArcheType 구조 잡기 
+
+---------------------------
+Scene
+- Entity vectdor
+- Implicit List
+- available

@@ -3,6 +3,7 @@
 #include "GameInfo.h"
 #include "Flag.h"
 #include "ComponentPool.h"
+#include "SparseSetContainer.h"
 
 class ComponentContainer
 {
@@ -15,6 +16,8 @@ class ComponentContainer
 private :
 	// Scene 내의 모든 Component Pool
 	std::vector<ComponentPool>* m_ComponentPools;
+
+	SparseSetContainer m_SparseSetContainer;
 
 };
 

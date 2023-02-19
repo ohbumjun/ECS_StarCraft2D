@@ -17,7 +17,7 @@ using EntityVersion = unsigned int;
 
 inline ComponentTypeID getUniqueComponentID()
 {
-	static ComponentTypeID lastID = 0;
+	static ComponentTypeID lastID = 1;
 	return lastID++;
 }
 
@@ -42,6 +42,16 @@ inline EntityID CreateEntityId(EntityIndex index, EntityVersion version)
 	return ((EntityID)index << 32) | ((EntityID)version);
 }
 
+// ECS Recyle Flag 를 위한 Node 구조체
+struct DestroyedEntity
+{
+	DestroyedEntity* m_Next;
+
+	// Entity 의 idx 정보만 들고 있게 하기
+	EntityIndex idx;
+};
+
+/*
 inline EntityIndex GetEntityIndex(EntityID id)
 {
 	return id >> 32;
@@ -56,4 +66,5 @@ inline bool IsEntityValid(EntityID id)
 {
 	return (id >> 32) != (EntityIndex)(-1);
 }
+*/
 
